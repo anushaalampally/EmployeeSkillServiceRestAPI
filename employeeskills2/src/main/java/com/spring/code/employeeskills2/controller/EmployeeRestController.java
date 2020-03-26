@@ -54,7 +54,7 @@ public class EmployeeRestController {
 		try {
 			Employee employee=employeeService.createEmployee(theEmployee);
 			if(null!=employee) {
-				return new ResponseEntity<Employee>(HttpStatus.CREATED);
+				return new ResponseEntity<Employee>(employee,HttpStatus.CREATED);
 			}else {
 				return new ResponseEntity<Employee>(HttpStatus.UNPROCESSABLE_ENTITY);
 			}
@@ -135,7 +135,7 @@ public class EmployeeRestController {
 			HttpHeaders headers= new HttpHeaders();
 			String skillssize=String.valueOf(skills.size());
 			headers.add("Count",skillssize);
-			headers.add("description", "The total count of technical skills from a Perficient employees returned.");
+			headers.add("description",EmployeeSkillConstants.TOTAL_COUNT_PERFICIENT_EMP_DESCRIPTION);
 			if(skills.isEmpty()){
 		        return new ResponseEntity<List<Skill>>(HttpStatus.NO_CONTENT);
 		    }
@@ -165,7 +165,7 @@ public class EmployeeRestController {
 			// after adding skill to employe we are updating database so that the skill will be added into employee_skill table
 			employeeService.updateEmployeeById(employee);
 			
-			return new ResponseEntity<Skill>(HttpStatus.CREATED);
+			return new ResponseEntity<Skill>(addedSkill,HttpStatus.CREATED);
 		} catch (Exception e) {		
 			
 			//System.out.println(e.getMessage());

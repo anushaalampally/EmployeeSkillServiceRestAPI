@@ -15,12 +15,14 @@ public class EmployeeSkillUtil {
 		return false;
 	}
 	
-public static void main(String args[]) {
-	
-	String id="4028808e70ff17610170ff18b9790001";
-	System.out.println(isValidId(id));
-	
-	
-}
+	/*
+	 * public static void main(String args[]) {
+	 * 
+	 * String id="4028808e70ff17610170ff18b9790001";
+	 * System.out.println(isValidId(id));
+	 * 
+	 * 
+	 * }
+	 */
 
 }
